@@ -57,6 +57,7 @@ int pop(int a[],int top)
     }
     else
     {
+        printf("Element will be deleting is %d \n",a[top]);
         top=top-1;
         return top;
     }
