@@ -59,6 +59,7 @@ void pop(stack arr[],int* top)
 	}
 	else
 	{
+		printf("%d is removing\n",arr[*top].data);
 		*top=*top-1;
 	}
 }
