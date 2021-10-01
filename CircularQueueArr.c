@@ -3,25 +3,68 @@
 #define MAX 10
 int enqueue(int front,int rear,int a[])
 {
-	if((rear+1)%MAX==front)
+	if (rear==-1 && front==-1)
+	{
+		rear=0;
+		printf("Enter number:");
+		scanf("%d",&a[rear]);
+		return rear;
+	}
+	else if((rear+1)%MAX==front)
 		printf("Queue is full");
 	else
 	{
 		rear=(rear+1)%MAX;
-		printf("Enter element:");
+		printf("Enter number:");
 		scanf("%d",&a[rear]);
 		return rear;
 	}
 }
-int dequeue(int front,int dequeue,int a[])
+int dequeue(int front,int rear,int a[])
 {
-	if(front==-1 && rear==-1 || )
+	if(front==-1 || rear==-1)
 		printf("Stack is empty");
+	else if(front==rear)
+	{
+		printf("Deleting number is:%d",a[front]);
+		front=-1;
+		return front;
+	}
 	else
 	{
 		printf("Deleting number is:%d",a[front]);
 		front=(front+1)%MAX;
+		return front;
 	}
+}
+void display(int front,int rear,int a[])
+{
+	if(front==-1 && rear==-1)
+	{
+		printf("Queue is empty");
+	}
+	else
+	{
+		int i;
+		printf("Elements of Queue are:");
+		while(i<=rear)
+		{
+			printf(" %d ",a[i]);
+			i=(i+1)%MAX;
+		}
+	}
+}	
+int peek(int front,int rear,int a[])
+{
+	if (front=-1 && front==rear)
+	{
+		printf("Stack is empty");	
+	}
+	else
+	{
+		printf("Element is:%d",a[front]);
+	}
+	
 }
 int main()
 {
@@ -40,12 +83,9 @@ int main()
 				break;
 			case 2:
 				front=dequeue(front,rear,a);
-				if(front>rear)
-				{
+				if(front==-1)
 					rear=-1;
-					front=-1;
-				}
-				break;
+					break;
 			case 3:
 				peek(front,rear,a);
 				break;				
@@ -61,4 +101,3 @@ int main()
 		}
 	}
 }
-
